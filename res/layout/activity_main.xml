@@ -67,17 +67,20 @@
                                 android:layout_height="wrap_content" >
 
                                 <TextView style="@style/TextView"
-                                    android:text="ABCDEFG" />
+                                    android:text="ABCDEFG"
+                                    android:id="@+id/tv1" />
 
                                 <TextView style="@style/TextView"
-                                    android:text="HELLO WORLD" />
+                                    android:text="HELLO WORLD" 
+                                    android:id="@+id/tv2"/>
                             </LinearLayout>
                              <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" >
 
                                 <TextView style="@style/TextView"
-                                    android:text="MAKE THE CHANGE" />
+                                    android:text="MAKE THE CHANGE"
+                                    android:id="@+id/tv3" />
 
                                 <TextView style="@style/TextView" 
                                     android:text="IMPOSSIBLE IS NOTHING" />

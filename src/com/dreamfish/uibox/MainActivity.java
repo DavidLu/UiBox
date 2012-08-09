@@ -3,9 +3,16 @@ package com.dreamfish.uibox;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -35,6 +42,51 @@ public class MainActivity extends Activity {
 				.setContent(R.id.tab3));
 		mTabHost.setCurrentTab(0);
 
+		TextView tv = (TextView) findViewById(R.id.tv1);
+		tv.setOnLongClickListener(new OnLongClickListener() {
+
+			@Override
+			public boolean onLongClick(View v) {
+				android.widget.LinearLayout.LayoutParams params = (LayoutParams) v
+						.getLayoutParams();
+				params.height = (int) (params.height*0.7);
+				//params.width = (int) (params.width*0.8);
+
+				v.setLayoutParams(params);
+				return true;
+			}
+
+		});
+		TextView tv2 = (TextView) findViewById(R.id.tv2);
+		tv2.setOnLongClickListener(new OnLongClickListener() {
+
+			@Override
+			public boolean onLongClick(View v) {
+				Animation animation = new AlphaAnimation(1.0f, 0.5f);
+				animation.setDuration(50);
+				animation.setFillAfter(true);
+				//v.setAnimation(animation);
+				v.startAnimation(animation);
+				return true;
+			}
+
+		});
+		
+		TextView tv3 = (TextView) findViewById(R.id.tv3);
+		tv3.setOnLongClickListener(new OnLongClickListener() {
+
+			@Override
+			public boolean onLongClick(View v) {
+				//ScaleAnimation(float fromX, float toX, float fromY, float toY, float pivotX, float pivotY)
+				Animation animation = new ScaleAnimation(1.0f, 0.8f, 1.0f, 0.8f,  v.getWidth()/2f, v.getHeight()/2f);
+				animation.setDuration(50);
+				animation.setFillAfter(true);
+				//v.setAnimation(animation);
+				v.startAnimation(animation);
+				return true;
+			}
+
+		});
 	}
 
 	@Override
